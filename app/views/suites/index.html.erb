@@ -1,0 +1,20 @@
+<h1 class="title">Test Suites</h1>
+<div class="field">
+    <% @suites.each do |suite| %>
+      <div class="cell">
+        <div class="icon">
+          <%= image_tag('suite.png') %>
+        </div>
+        <div class="suite desc">
+          <div class="suite-title">
+            <%= link_to suite.title, '#' %>
+          </div>
+          <div class="mini-actions">
+            <%= link_to 'Run Test', '#' %>
+            <%= link_to 'Test Runs', '#' %>
+            <%= link_to 'Edit', '#' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>

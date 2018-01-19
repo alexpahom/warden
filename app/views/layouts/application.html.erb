@@ -5,10 +5,20 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+  <div class="header">
+    <h1>Hello!</h1>
+    <ul class="header-menu">
+      <li class="header-menu-item"><%= link_to 'Overview', '#' %></li>
+      <li class="header-menu-item"><%= link_to 'Test Suites & Cases', '#', class: 'test' %></li>
+      <li class="header-menu-item"><%= link_to 'Reports', '#' %></li>
+    </ul>
+  </div>
+  <div id="separator"></div>
     <%= yield %>
+    <% console %>
   </body>
 </html>
