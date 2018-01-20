@@ -18,7 +18,14 @@
     </ul>
   </div>
   <div id="separator"></div>
-    <%= yield %>
+  <div class="content">
+    <div id="body">
+      <%= yield %>
+    </div>
+    <div id="sidebar">
+      <%= yield :sidebar %>
+    </div>
+  </div>
     <% console %>
   </body>
 </html>

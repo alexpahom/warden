@@ -1,4 +1,6 @@
-<h1 class="title">Test Suites</h1>
+<div id="section-header">
+  <p>Test Suites</p>
+</div>
 <div class="field">
     <% @suites.each do |suite| %>
       <div class="cell">
@@ -18,3 +20,7 @@
       </div>
     <% end %>
 </div>
+
+<% content_for :sidebar do %>
+  <%= link_to 'Add Test Suite', '#' , class: 'btn btn-primary' %>
+<% end %>

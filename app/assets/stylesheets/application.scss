@@ -59,3 +59,29 @@ ol, ul {
   background-color: #ebebeb;
   color: #32588b;
 }
+
+#section-header {
+  height: 40px;
+  background: #d1e6fd;
+}
+
+#section-header p {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.content {
+  position: relative;
+}
+
+#sidebar {
+  background: #ebebeb;
+  height: 100%;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px;
+  border-left: 1px solid #d7d7d7;
+}
