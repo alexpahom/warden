@@ -1,0 +1,16 @@
+<div id="section-header">
+  <p>Add Test Suites</p>
+</div>
+
+<%= bootstrap_form_for @suite do |f| %>
+  <div class="field">
+    <%= f.text_field :title, help: 'Ex: User Interface Test or Release Protocol', id: 'name' %>
+    <div class="form-separator"></div>
+
+    <%= f.text_area :description, help: 'Use this description to explain the content and purpose of this test suite' %>
+    <%= f.form_group do %>
+      <%= f.primary 'Add New Suite' %>
+      <%= link_to 'Cancel', suites_path, class: 'btn btn-default' %>
+    <% end %>
+  </div>
+<% end %>

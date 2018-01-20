@@ -19,11 +19,13 @@
   </div>
   <div id="separator"></div>
   <div class="content">
-    <div id="body">
-      <%= yield %>
-    </div>
-    <div id="sidebar">
-      <%= yield :sidebar %>
+    <div class="row">
+      <div id="body" class="col-xs-10">
+        <%= yield %>
+      </div>
+      <div id="sidebar" class="col-xs-3">
+        <%= yield :sidebar %>
+      </div>
     </div>
   </div>
     <% console %>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
 
-  get '/suite',       to: 'suites#index'
-
+  get '/suites',       to: 'suites#index'
+  get '/suites/new',   to: 'suites#new'
 end
