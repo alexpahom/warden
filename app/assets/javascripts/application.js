@@ -16,3 +16,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+//
+// $('.form-group').on( 'change keyup keydown paste cut', 'textarea', function (){
+//     $(this).height(0).height(this.scrollHeight);
+// }).find( 'textarea ').change();

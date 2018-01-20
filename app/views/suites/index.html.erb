@@ -9,12 +9,12 @@
         </div>
         <div class="suite desc">
           <div class="suite-title">
-            <%= link_to suite.title, '#' %>
+            <%= link_to suite.title, suite_edit_path(suite) %>
           </div>
           <div class="mini-actions">
             <%= link_to 'Run Test', '#' %>
             <%= link_to 'Test Runs', '#' %>
-            <%= link_to 'Edit', '#' %>
+            <%= link_to 'Edit', suite_path(suite) %>
           </div>
         </div>
       </div>
