@@ -9,12 +9,12 @@
         </div>
         <div class="suite desc">
           <div class="suite-title">
-            <%= link_to suite.title, suite_edit_path(suite) %>
+            <%= link_to suite.title, suite_path(suite) %>
           </div>
           <div class="mini-actions">
             <%= link_to 'Run Test', '#' %>
             <%= link_to 'Test Runs', '#' %>
-            <%= link_to 'Edit', suite_path(suite) %>
+            <%= link_to 'Edit', edit_suite_path(suite) %>
           </div>
         </div>
       </div>
@@ -22,5 +22,5 @@
 </div>
 
 <% content_for :sidebar do %>
-  <%= link_to 'Add Test Suite', suites_new_path , class: 'btn btn-primary' %>
+  <%= link_to 'Add Test Suite', new_suite_path , class: 'btn btn-primary' %>
 <% end %>

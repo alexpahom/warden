@@ -1,5 +1,5 @@
 class SuitesController < ApplicationController
-  before_action :fetch_suite, only: %i(show edit update)
+  before_action :fetch_suite, only: %i(show edit update destroy)
 
   def index
     @suites = Suite.all
@@ -18,7 +18,7 @@ class SuitesController < ApplicationController
     if @suite.save
       redirect_to(suites_path, notice: 'Done')
     else
-      redirect_to(suites_new_path, alert: 'Error')
+      redirect_to(new_suite_path, alert: @suite.errors.full_messages.to_sentence)
     end
   end
 
@@ -26,8 +26,13 @@ class SuitesController < ApplicationController
     if @suite.update_attributes(suite_params)
       redirect_to(suites_path, notice: 'Done')
     else
-      redirect_to(suite_edit_path, alert: 'Error')
+      redirect_to(edit_suite_path, alert: @suite.errors.full_messages.to_sentence)
     end
+  end
+
+  def destroy
+    @suite.destroy
+    redirect_to(suites_path, notice: 'Deleted')
   end
 
   private
