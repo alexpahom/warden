@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  id: 10
+  title: Android Basic Acceotance Testing
+  description: This is a description for a android test suite
 
 two:
-  title: MyString
-  description: MyText
+  id: 20
+  title: iOS Basic Acceotance Testing
+  description: This is a description for a ios test suite

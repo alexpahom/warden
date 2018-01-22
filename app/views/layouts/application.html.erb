@@ -29,8 +29,8 @@
       <div id="sidebar" class="col-xs-3">
         <%= yield :sidebar %>
       </div>
+      <% console if Rails.env.development? %>
     </div>
   </div>
-    <% console %>
   </body>
 </html>
