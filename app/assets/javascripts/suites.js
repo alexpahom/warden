@@ -2,11 +2,22 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
+//  'noclose' plugin does not allow to collapse
+// (function($, undefined) {
+//     "use strict";
+//     $.jstree.plugins.noclose = function() {
+//         this.close_node = $.noop;
+//     };
+// })(jQuery);
+
 $(function() {
     $('#jstree_div').jstree({
-        "plugins" : [
-            "contextmenu",
-            "dnd"
-        ]
+        // Uncomment for Context Menu and Drag-n-Drop plugins
+        // "plugins" : [
+        //     "contextmenu",
+        //     "dnd"
+        // ]
+    }).on('ready.jstree', function () {
+        $('#jstree_div').jstree('open_all');
     });
 });
