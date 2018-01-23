@@ -30,7 +30,7 @@ suites.each do |suite|
   invite = general.children.create(title: 'Invite', suite_id: suite.id)
   driver = Section.create(title: 'Driver\'s screens', suite_id: suite.id)
   trips = driver.children.create(title: 'Trips', suite_id: suite.id)
-  details = trips.children.create(title: 'Trip Details', suite_id: suite.id) #
+  details = trips.children.create(title: 'Trip Details', suite_id: suite.id)
   score = driver.children.create(title: 'Score', suite_id: suite.id)
   significant = score.children.create(title: 'Significant Trips', suite_id: suite.id)
   trending = score.children.create(title: 'Trip Trending', suite_id: suite.id)

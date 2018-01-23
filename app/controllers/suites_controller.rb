@@ -9,7 +9,9 @@ class SuitesController < ApplicationController
     @suite = Suite.new
   end
 
-  def show; end
+  def show
+    @sections = @suite.sections
+  end
 
   def edit; end
 

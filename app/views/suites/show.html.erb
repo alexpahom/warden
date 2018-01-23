@@ -8,3 +8,11 @@
     <%= @suite.description %>
   </p>
 </div>
+
+<%= content_for :sidebar do %>
+  <%= link_to 'Add Section', '#', class: 'btn btn-primary' %><br>
+
+  <div id="jstree_div">
+    <%= render_tree(@sections.roots) %>
+  </div>
+<% end %>
