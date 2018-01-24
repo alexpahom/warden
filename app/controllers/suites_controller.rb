@@ -1,6 +1,6 @@
 class SuitesController < ApplicationController
   before_action :fetch_suite, only: %i(show edit update destroy)
-  before_action :fetch_section, only: :edit_section
+  # before_action :fetch_section, only: %i(edit_section update_section)
 
   # lists all the Test Suites
   def index
@@ -45,13 +45,13 @@ class SuitesController < ApplicationController
     redirect_to(suites_path, notice: 'Deleted')
   end
 
-  def edit_section
-    if @section.update_attributes(section_params)
-      redirect_to(suites_path, notice: 'Section Created')
-    else
-      redirect_to(suites_path, alert: @section.errors.full_messages.to_sentence)
-    end
-  end
+  # def update_section
+  #   if @section.update_attributes(section_params)
+  #     redirect_to(suites_path, notice: 'Section Created')
+  #   else
+  #     redirect_to(suites_path, alert: @section.errors.full_messages.to_sentence)
+  #   end
+  # end
 
   private
 
