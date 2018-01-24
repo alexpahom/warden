@@ -20,4 +20,15 @@ $(function() {
     }).on('ready.jstree', function () {
         $('#jstree_div').jstree('open_all');
     });
+    // $("input[type='checkbox']").change(function () {
+    //     $(this).siblings('ul').find("input[type='checkbox']").prop('checked', this.checked);
+    // });
+});
+
+
+// Checks children if parent is checked
+$(function () {
+    $("input[type='checkbox']").change(function () {
+        $(this).parent().parent().children('ul').find("input[type='checkbox']").prop('checked', this.checked);
+    });
 });
