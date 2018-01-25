@@ -1,6 +1,6 @@
 class SuitesController < ApplicationController
   before_action :fetch_suite, only: %i(show edit update destroy)
-  # before_action :fetch_section, only: %i(edit_section update_section)
+  # before_action :fetch_suite_for_section, only: :create_section
 
   # lists all the Test Suites
   def index
@@ -15,6 +15,7 @@ class SuitesController < ApplicationController
   # Shows a content of a single Test Suite including Test Cases
   def show
     @sections = @suite.sections
+    # @section = Section.new
   end
 
   # Test Suite edit page
@@ -45,14 +46,6 @@ class SuitesController < ApplicationController
     redirect_to(suites_path, notice: 'Deleted')
   end
 
-  # def update_section
-  #   if @section.update_attributes(section_params)
-  #     redirect_to(suites_path, notice: 'Section Created')
-  #   else
-  #     redirect_to(suites_path, alert: @section.errors.full_messages.to_sentence)
-  #   end
-  # end
-
   private
 
   # Stores a particular Test Suite
@@ -60,8 +53,8 @@ class SuitesController < ApplicationController
     @suite = Suite.find(params[:id])
   end
 
-  def fetch_section
-    @section = Section.find(params[:id])
+  def fetch_suite_for_section
+    @suite = Suite.find(params[:suite_id])
   end
 
   # Strong parameters for a Test Suite

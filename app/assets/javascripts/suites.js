@@ -10,7 +10,8 @@
 //     };
 // })(jQuery);
 
-$(function() {
+// Renders JStree sidebar
+$(document).on('turbolinks:load',function() {
     $('#jstree_div').jstree({
         // Uncomment for Context Menu and Drag-n-Drop plugins
         // "plugins" : [

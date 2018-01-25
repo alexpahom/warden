@@ -2,7 +2,8 @@
   <p>Edit Test Suites</p>
 </div>
 
-<%= render 'suites/suites_form' %>
+<%= render partial: 'suites/suites_form', locals: {folder: @suite} %>
+
 <%= content_for :sidebar do %>
   <p>Delete this test suite to remove it from your project. This also deletes all related test cases and running tests.</p>
   <%= link_to 'Delete this test suite', suite_path(@suite), method: :delete, data: { confirm: 'Are you sure?' } %>
