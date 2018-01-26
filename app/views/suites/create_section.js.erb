@@ -1,4 +1,5 @@
 $('#squarespaceModal').slideUp(700);
 $('#flash').html("<%= j render 'shared/errors' %>");
 
-$('')
+$("[data-attribute = '<%= @section.parent_id %>']").parent()
+    .append("<%= j render_block(@section) %>").children().children().attr('style', 'display:none').slideDown(700);
