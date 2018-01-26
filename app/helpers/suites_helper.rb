@@ -17,17 +17,11 @@ module SuitesHelper
         content_tag(:li) do
           content_tag(:div, nil, class: 'section-block') do
             content_tag(:span, root.title, class: 'section-name') +
-                render('suites/section-header') + render_cases(root.children)
+                render('suites/section-header', locals: { parent: root.id }) +
+                  render_cases(root.children)
           end
         end
       end.join.html_safe
     end
   end
-
-  # def render_header_div
-  #   content_tag(:div, nil, class: 'section-head') do
-  #     image_tag('dragNoBlue.png', class: 'drag-no') +
-  #         check_box(nil, nil, class: 'section-selection')
-  #   end
-  # end
 end

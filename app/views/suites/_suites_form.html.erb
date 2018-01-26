@@ -1,12 +1,13 @@
-<%= bootstrap_form_for folder do |f| %>
+<%= bootstrap_form_for folder, remote: true do |f| %>
   <div class="field">
     <%= f.text_field :title, help: 'Ex: User Interface Test or Release Protocol', id: 'name' %>
     <div class="form-separator"></div>
 
     <%= f.text_area :description, help: 'Use this description to explain the content and purpose of this test suite' %>
+    <%= f.hidden_field :parent_id %>
     <%= f.form_group do %>
       <%= f.primary %>
-      <%= link_to 'Cancel', suites_path, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', '#', class: 'btn btn-default away' %>
     <% end %>
   </div>
 <% end %>

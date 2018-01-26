@@ -30,3 +30,13 @@ $(function () {
         $(this).parent().parent().children('ul').find("input[type='checkbox']").prop('checked', this.checked);
     });
 });
+
+// Appends parent_id of a section right into the pop-up form
+$(function () {
+    $('.add-section').click(function () {
+        var parent = $(this).attr('data-attribute');
+        setTimeout(function () {
+            $('#section_parent_id').val(parent);
+            }, 500);
+        });
+});

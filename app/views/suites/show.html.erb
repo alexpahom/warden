@@ -9,12 +9,15 @@
   </p>
 </div>
 
+<div id="popup"></div>
+
 <div id="cases">
   <%= render_cases(@sections.roots) %>
 </div>
 
 <%= content_for :sidebar do %>
-  <%= link_to 'Add Section', '#', class: 'btn btn-primary' %><br>
+  <%= link_to 'Add Section', suite_sections_new_path(@suite), class: 'btn btn-primary add-sect',
+              'data-toggle' => 'modal', 'data-target' => '#squarespaceModal', remote: true %><br>
 
   <div id="jstree_div">
     <%= render_tree(@sections.roots) %>

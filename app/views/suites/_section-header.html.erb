@@ -4,5 +4,6 @@
 </div>
 <%= link_to 'Add Case', '#', class: 'link add-case' %>
 |
-<%= link_to 'Add Subsection', '', class: 'link add-section' %>
+<%= link_to 'Add Subsection', suite_sections_new_path(@suite),
+            class: 'link add-section', remote: true, 'data-attribute' => locals[:parent] %>
 
