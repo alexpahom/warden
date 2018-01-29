@@ -11,6 +11,7 @@
     <%= f.form_group do %>
       <%= f.primary %>
 
+      <!--JS script for pop-up, redirect for html page-->
       <% if params[:controller] == 'suites' && params[:action].in?(%w(new edit)) %>
         <%= link_to 'Cancel', suites_path, class: 'btn btn-default away' %>
       <% else %>

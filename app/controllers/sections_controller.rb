@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
   before_action :fetch_suite_for_section, only: %i(new create edit update)
-  before_action :fetch_section, only: %i(edit update)
+  before_action :fetch_section, only: %i(edit update destroy)
 
   def new
     @section = Section.new
@@ -30,6 +30,13 @@ class SectionsController < ApplicationController
       else
         format.js { flash[:alert] = @section.errors.full_messages.to_sentence }
       end
+    end
+  end
+
+  def destroy
+    respond_to do |format|
+      @section.destroy
+      format.js { flash[:success] = 'Deleted' }
     end
   end
 
