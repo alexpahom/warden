@@ -16,7 +16,7 @@
 </div>
 
 <%= content_for :sidebar do %>
-  <%= link_to 'Add Section', suite_sections_new_path(@suite), class: 'btn btn-primary add-sect',
+  <%= link_to 'Add Section', new_suite_section_path(@suite), class: 'btn btn-primary add-sect',
               'data-toggle' => 'modal', 'data-target' => '#squarespaceModal', remote: true %><br>
 
   <div id="jstree_div">

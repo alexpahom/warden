@@ -1,6 +1,6 @@
 <div class="section-head">
   <span class="section-name"><%= locals[:title] %></span>
-  <%= link_to image_tag('smallEdit.png'), suite_edit_section_path(@suite, locals[:object]),
+  <%= link_to image_tag('smallEdit.png'), edit_suite_section_path(@suite, locals[:object]),
               class: 'action-hover', remote: true %>
   <%= link_to image_tag('smallDelete.png'), '#', class: 'action-hover' %>
 </div>
@@ -10,6 +10,6 @@
 </div>
 <%= link_to 'Add Case', '#', class: 'link add-case' %>
 |
-<%= link_to 'Add Subsection', suite_sections_new_path(@suite),
+<%= link_to 'Add Subsection', new_suite_section_path(@suite),
             class: 'link add-section', remote: true, 'data-attribute' => locals[:parent] %>
 
