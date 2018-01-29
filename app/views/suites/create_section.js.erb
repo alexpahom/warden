@@ -1,5 +1,15 @@
 $('#squarespaceModal').slideUp(700);
 $('#flash').html("<%= j render 'shared/errors' %>");
 
-$("[data-attribute = '<%= @section.parent_id %>']").parent()
-    .append("<%= j render_block(@section) %>").children().children().attr('style', 'display:none').slideDown(700);
+<% if !@section.parent_id.nil? %>
+  $("[data-attribute = '<%= @section.parent_id %>']").parent()
+      .append("<%= j render_block(@section) %>").children().children().attr('style', 'display:none').slideDown(700);
+<% else %>
+  $('#cases').children().append("<%= j render_block @section %>");
+<% end %>
+
+// TODO: breaks JS on addition - need to relaunch js scripting on load
+// $(function () {
+//     $('#jstree_div').html("<%= j render_tree(@sections.roots)%>");
+//     console.log('1');
+// });

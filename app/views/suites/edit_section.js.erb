@@ -1,0 +1,2 @@
+$('#popup').html("<%= j (render partial: 'shared/modal', locals: {object: [@suite, @section]}) %>")
+    .children().slideDown(700);

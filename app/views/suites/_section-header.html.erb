@@ -1,4 +1,10 @@
 <div class="section-head">
+  <span class="section-name"><%= locals[:title] %></span>
+  <%= link_to image_tag('smallEdit.png'), suite_edit_section_path(@suite, locals[:object]),
+              class: 'action-hover', remote: true %>
+  <%= link_to image_tag('smallDelete.png'), '#', class: 'action-hover' %>
+</div>
+<div class="section-nav">
   <%= image_tag('dragNoBlue.png', class: 'drag-no') %>
   <%= check_box(nil, nil, class: 'section-selection') %>
 </div>

@@ -4,7 +4,7 @@ module SuitesHelper
     content_tag(:ul) do
       roots.map do |root|
         content_tag(:li) do
-          link_to(root.title, '#') + render_tree(root.children)
+          link_to(root.title, '') + render_tree(root.children)
         end
       end.join.html_safe
     end
@@ -23,9 +23,8 @@ module SuitesHelper
 
   def render_block(section)
     content_tag(:div, nil, class: 'section-block') do
-      content_tag(:span, section.title, class: 'section-name') +
-          render('suites/section-header', locals: { parent: section.id }) +
-            render_cases(section.children)
+      render('suites/section-header', locals: { parent: section.id, title: section.title, object: section }) +
+          render_cases(section.children)
     end
   end
 end
