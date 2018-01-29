@@ -3,7 +3,8 @@ $('#flash').html("<%= j render 'shared/errors' %>");
 
 <% if !@section.parent_id.nil? %>
   $("[data-attribute = '<%= @section.parent_id %>']").parent()
-      .append("<%= j render_block(@section) %>").children().children().attr('style', 'display:none').slideDown(700);
+      .append("<ul><li><%= j render_block(@section) %></li></ul>").children().children()
+      .attr('style', 'display:none').slideDown(700);
 <% else %>
   $('#cases').children().append("<%= j render_block @section %>");
 <% end %>

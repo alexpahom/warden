@@ -5,12 +5,17 @@
 
     <%= f.text_area :description, help: 'Use this description to explain the content and purpose of this test suite' %>
     <!--Do not insert parent id in case of operations on SUITES -->
-    <% if controller.controller_name == 'sections' %>
+    <% unless params[:controller] == 'suites' && params[:action].in?(%w(new edit)) %>
       <%= f.hidden_field :parent_id %>
     <% end %>
     <%= f.form_group do %>
       <%= f.primary %>
-      <%= link_to 'Cancel', '#', class: 'btn btn-default away' %>
+
+      <% if params[:controller] == 'suites' && params[:action].in?(%w(new edit)) %>
+        <%= link_to 'Cancel', suites_path, class: 'btn btn-default away' %>
+      <% else %>
+        <%= button_tag 'Cancel', type: 'button', class: 'btn btn-default', onclick: '$(\'#squarespaceModal\').hide();' %>
+      <% end %>
     <% end %>
   </div>
 <% end %>

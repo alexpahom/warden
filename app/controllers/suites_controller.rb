@@ -1,9 +1,5 @@
 class SuitesController < ApplicationController
   before_action :fetch_suite, only: %i(show edit update destroy)
-  # before_action :fetch_suite_for_section,
-  #               only: %i(create_section new_section edit_section update_section)
-
-  # before_action :fetch_section, only: %i(edit_section)
 
   # lists all the Test Suites
   def index
@@ -48,27 +44,6 @@ class SuitesController < ApplicationController
     redirect_to(suites_path, notice: 'Deleted')
   end
 
-  # def new_section
-  #   @section = Section.new
-  # end
-
-  # def create_section
-  #   @sections = @suite.sections.order(:created_at)
-  #
-  #   @section = @suite.sections.new(section_params)
-  #   respond_to do |format|
-  #     if @section.save
-  #       format.js { flash[:success] = 'Done' }
-  #     else
-  #       format.js { flash[:alert] = @section.errors.full_messages.to_sentence }
-  #     end
-  #   end
-  # end
-
-  # def edit_section
-  #   respond_to :js
-  # end
-
   private
 
   # Stores a particular Test Suite
@@ -76,20 +51,8 @@ class SuitesController < ApplicationController
     @suite = Suite.find(params[:id])
   end
 
-  # def fetch_suite_for_section
-  #   @suite = Suite.find(params[:suite_id])
-  # end
-
-  # def fetch_section
-  #   @section = Section.find(params[:id])
-  # end
-
   # Strong parameters for a Test Suite
   def suite_params
     params.require(:suite).permit(%i(title description))
   end
-
-  # def section_params
-  #   params.require(:section).permit(%i(title description parent_id))
-  # end
 end

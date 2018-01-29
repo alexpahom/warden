@@ -2,37 +2,22 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-//  'noclose' plugin does not allow to collapse
-// (function($, undefined) {
-//     "use strict";
-//     $.jstree.plugins.noclose = function() {
-//         this.close_node = $.noop;
-//     };
-// })(jQuery);
-
 // Renders JStree sidebar
 $(document).on('turbolinks:load',function() {
-    $('#jstree_div').jstree({
-        // Uncomment for Context Menu and Drag-n-Drop plugins
-        // "plugins" : [
-        //     "contextmenu",
-        //     "dnd"
-        // ]
-    }).on('ready.jstree', function () {
+    $('#jstree_div').jstree().on('ready.jstree', function () {
         $('#jstree_div').jstree('open_all');
     });
 });
 
-
 // Checks children if parent is checked
-$(function () {
+$(document).on('turbolinks:load',function () {
     $("input[type='checkbox']").change(function () {
         $(this).parent().parent().children('ul').find("input[type='checkbox']").prop('checked', this.checked);
     });
 });
 
 // Appends parent_id of a section right into the pop-up form
-$(function () {
+$(document).on('turbolinks:load',function () {
     $('.add-section').click(function () {
         var parent = $(this).attr('data-attribute');
         setTimeout(function () {

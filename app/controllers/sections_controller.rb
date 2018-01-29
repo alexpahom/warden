@@ -23,6 +23,16 @@ class SectionsController < ApplicationController
     respond_to :js
   end
 
+  def update
+    respond_to do |format|
+      if @section.update_attributes(section_params)
+        format.js { flash[:success] = 'Done' }
+      else
+        format.js { flash[:alert] = @section.errors.full_messages.to_sentence }
+      end
+    end
+  end
+
   private
 
   def fetch_section
