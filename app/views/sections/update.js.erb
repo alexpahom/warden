@@ -1,0 +1,8 @@
+$('#squarespaceModal').slideUp(700);
+$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut();
+
+$("[data-attribute = '<%= @section.id %>']").parent().replaceWith("<%= j render_block(@section) %>");
+
+
+
+

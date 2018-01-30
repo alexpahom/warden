@@ -17,3 +17,10 @@
 //= require bootstrap-sprockets
 //= require jstree
 //= require_tree .
+
+
+$(function () {
+    setTimeout(function () {
+        $('#flash-box').fadeOut();
+    },2000);
+});

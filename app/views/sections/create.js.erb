@@ -1,5 +1,5 @@
 $('#squarespaceModal').slideUp(700);
-$('#flash').html("<%= j render 'shared/errors' %>");
+$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut();
 
 <% if !@section.parent_id.nil? %>
   $("[data-attribute = '<%= @section.parent_id %>']").parent()

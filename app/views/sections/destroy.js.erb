@@ -1,2 +1,2 @@
-$('#flash').html("<%= j render 'shared/errors' %>");
+$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut();
 $("[data-attribute=<%= @section.id %>]").parent().slideUp(600);
