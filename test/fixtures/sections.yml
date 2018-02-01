@@ -4,8 +4,36 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  id: 4
+  suite_id: 10
+  title: General
+  description: Just a Suite
+  parent_id: nil
+
+two:
+  suite_id: 10
+  title: Login
+  description: Shows how to log in
+  parent_id: 4
+
+three:
+  suite_id: 10
+  title: Forget Password
+  parent_id: 4
+
+four:
+  suite_id: 20
+  id: 5
+  title: Driver Screens
+
+five:
+  suite_id: 20
+  title: Trips
+  parent_id: 5
+
+six:
+  suite_id: 20
+  title: Scores
+  parent_id: 5
+

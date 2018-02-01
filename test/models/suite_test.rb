@@ -21,4 +21,14 @@ class SuiteTest < ActiveSupport::TestCase
     @suite.title = suites(:one).title
     assert_not @suite.valid?
   end
+
+  test 'Title should not be long' do
+    @suite.title = '1' * 141
+    assert_not @suite.valid?
+  end
+
+  test 'Description should not be long' do
+    @suite.description = '1' * 2001
+    assert_not @suite.valid?
+  end
 end
