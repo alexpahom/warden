@@ -3,28 +3,29 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 // Renders JStree sidebar
-$(document).on('turbolinks:load',function() {
+$(function() {
     $('#jstree_div').jstree().on('ready.jstree', function () {
         $('#jstree_div').jstree('open_all');
     });
 });
 
 // Checks children if parent is checked
-$(document).on('turbolinks:load',function () {
+$(function () {
     $("input[type='checkbox']").change(function () {
         $(this).parent().parent().children('ul').find("input[type='checkbox']").prop('checked', this.checked);
     });
 });
 
 // Appends parent_id of a section right into the pop-up form
-// TODO: Still requires page refresh
-$(document).on('turbolinks:load',function () {
+$(function () {
     $('.add-section').click(function () {
-        var parent = $(this).attr('data-attribute');
-        setTimeout(function () {
-            $('#section_parent_id').val(parent);
-            }, 1500);
+        var parent = this;
+        $(document).on('ajax:success', function () {
+            $('#section_parent_id').val(function () {
+                return $(parent).attr('data-attribute');
+            });
         });
+    });
 });
 
 // TODO: Scroll on jstree_div click

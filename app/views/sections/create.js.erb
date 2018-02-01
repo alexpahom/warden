@@ -9,8 +9,3 @@ $('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut();
   $('#cases').children().append("<%= j render_block @section %>");
 <% end %>
 
-// TODO: breaks JS on addition - need to relaunch js scripting on load
-// $(function () {
-//     $('#jstree_div').html("<%= j render_tree(@sections.roots)%>");
-//     console.log('1');
-// });
