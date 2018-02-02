@@ -1,0 +1,16 @@
+<div class="section-head">
+  <span class="section-name"><%= locals[:title] %></span>
+  <%= link_to image_tag('smallEdit.png'), edit_suite_section_path(@suite, locals[:object]),
+              class: 'action-hover', remote: true %>
+  <%= link_to image_tag('smallDelete.png'), [@suite,locals[:object]], method: :delete, class: 'action-hover',
+              remote: true, data: { confirm: 'Are you sure that you want to delete it?'} %>
+</div>
+<div class="section-nav">
+  <%= image_tag('dragNoBlue.png', class: 'drag-no') %>
+  <%= check_box(nil, nil, class: 'section-selection') %>
+</div>
+<%= link_to 'Add Case', '#', class: 'link add-case' %>
+|
+<%= link_to 'Add Subsection', new_suite_section_path(@suite),
+            class: 'link add-section', remote: true, 'data-attribute' => locals[:parent] %>
+

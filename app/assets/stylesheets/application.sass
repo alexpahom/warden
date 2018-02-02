@@ -12,6 +12,8 @@
  *
  *= require_tree
  *= require_rails_bootstrap_forms
+ *= require jstree-default
+ *= require jquery.ui.all
  *= require_self
  */
 @import "bootstrap-sprockets"
@@ -74,13 +76,15 @@ ol, ul
 
 .content
   position: relative
+  overflow: hidden
+  padding-bottom: 350px
 
 #sidebar
   background: #ebebeb
-  height: 100%
   position: absolute
   top: 0
   right: 0
+  height: 100%
   padding: 15px
   border-left: 1px solid #d7d7d7
 
@@ -90,3 +94,13 @@ ol, ul
 
 #body
   padding: 0 0 0 15px
+  height: 100%
+
+#flash
+  position: fixed
+  width: 100%
+  z-index: 1
+
+#flash-box
+  margin: 0 auto
+  box-shadow: 0 25px 59px 15px rgba(0,0,0,0.6)

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119122523) do
+ActiveRecord::Schema.define(version: 20180122120109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "suite_id"
+    t.index ["suite_id"], name: "index_sections_on_suite_id"
+  end
 
   create_table "suites", force: :cascade do |t|
     t.string "title"

@@ -13,10 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.ui.all
 //= require bootstrap-sprockets
+//= require jstree
 //= require_tree .
-//
-// $('.form-group').on( 'change keyup keydown paste cut', 'textarea', function (){
-//     $(this).height(0).height(this.scrollHeight);
-// }).find( 'textarea ').change();
