@@ -1,0 +1,18 @@
+<!--A pattern for bootstrap modal snippet, just send an 'object' you want to render an edit/new form for -->
+
+<div class="modal fade in" id="squarespaceModal" tabindex="-1"
+     role="dialog" aria-labelledby="modalLabel" aria-hidden="false">
+  <div class="modal-backdrop fade in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#squarespaceModal').hide();">×</button>
+        <h3 class="modal-title" id="lineModalLabel">Add Section</h3>
+      </div>
+      <div class="modal-body">
+        <!-- content goes here -->
+        <%= render partial: 'suites/suites_form', locals: {folder: object} %>
+      </div>
+    </div>
+  </div>
+</div>
