@@ -25,9 +25,9 @@ end
 
 suites = Suite.all
 suites.each do |suite|
-  general = Section.create(title: 'General', suite_id: suite.id)
-  setup = general.children.create(title: 'Setup Cards', suite_id: suite.id)
-  invite = general.children.create(title: 'Invite', suite_id: suite.id)
+  @general = Section.create(title: 'General', suite_id: suite.id)
+  setup = @general.children.create(title: 'Setup Cards', suite_id: suite.id)
+  @invite = @general.children.create(title: 'Invite', suite_id: suite.id)
   driver = Section.create(title: 'Driver\'s screens', suite_id: suite.id)
   trips = driver.children.create(title: 'Trips', suite_id: suite.id)
   details = trips.children.create(title: 'Trip Details', suite_id: suite.id)
@@ -35,4 +35,28 @@ suites.each do |suite|
   significant = score.children.create(title: 'Significant Trips', suite_id: suite.id)
   trending = score.children.create(title: 'Trip Trending', suite_id: suite.id)
   statistics = score.children.create(title: 'Trip Statistics', suite_id: suite.id)
+end
+[
+  'Superadmin can log in',
+  'Validation message is displayed when user tries to log in with invalid credentials',
+  'User can logout',
+  'Password expires in 90 days',
+  '"Forgot Password" lets user reset his password',
+  'User\'s session is closed in 10 minutes of inactivity'
+].each do |test|
+  tcase = Case.create(
+    section_id: @general.id,
+    title: test
+  )
+end
+
+[
+  'Enter real phone number while inviting driver ',
+  'Activation form consists of 3 steps',
+  'Validation message is displayed on the 2nd step in case of incorrect data/different passwords'
+].each do |test|
+  tcase = Case.create(
+    section_id: @invite.id,
+    title: test
+  )
 end
