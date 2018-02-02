@@ -1,5 +1,5 @@
 class SuitesController < ApplicationController
-  before_action :fetch_suite, only: %i(show edit update destroy)
+  before_action :fetch_suite, only: %i(temp show edit update destroy)
 
   # lists all the Test Suites
   def index
@@ -37,7 +37,7 @@ class SuitesController < ApplicationController
       redirect_to(edit_suite_path, alert: @suite.errors.full_messages.to_sentence)
     end
   end
-  
+
   # Deletes Test Suite
   def destroy
     @suite.destroy
