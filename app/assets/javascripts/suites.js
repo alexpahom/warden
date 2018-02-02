@@ -5,7 +5,19 @@
 // Renders JStree sidebar
 $(function() {
     $('#jstree_div').jstree().on('ready.jstree', function () {
-        $('#jstree_div').jstree('open_all');
+        // Expands the tree by default
+        $('#jstree_div').jstree('open_all')
+            // Scrolls #cases to section that clicked within jstree-div
+            .on('activate_node.jstree', function(e, data){
+                //Finds a section to hover to
+           var point = $('#cases').find('span').filter(function () {
+               return $(this).text() === data.node.text;
+           });
+                // Scrolls to it
+           $('html, body').animate({
+               scrollTop: $(point).offset().top
+           }, 300);
+        });
     });
 });
 
@@ -28,17 +40,17 @@ $(function () {
     });
 });
 
-// TODO: Scroll on jstree_div click
-// $(function(){
-//     $('#jstree_div a').click(function () {
-//         var text = $(this).text();
-//         // Finds span.text() within #cases div
-//         var point = $('#cases span').filter(function () {
-//             return $(this).text == text;
-//         });
-//         // Scrolls down to searched element
-//         $('html, body').animate({
-//             scrollTop: $(point).offset().top
-//         }, 300);
-//     });
-// });
+// JStree sticks to the top of a screen
+$(function () {
+    var a = function () {
+        var win_top = $(window).scrollTop();
+        var div_top = $('#scroller').offset().top;
+        var sc = $('#jstree_div');
+        if (win_top > div_top) {
+            sc.css({position: 'fixed', top: '0px'})
+        } else {
+            sc.css({position: 'relative', top: ''})
+        }
+    };
+    $(window).scroll(a);a()
+});

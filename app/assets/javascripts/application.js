@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require bootstrap-sprockets
 //= require jstree
 //= require_tree .
