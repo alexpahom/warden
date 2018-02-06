@@ -18,11 +18,6 @@ class SectionTest < ActiveSupport::TestCase
     assert_not @section.valid?
   end
 
-  test 'Title should be unique' do
-    @section.title = sections(:one).title
-    assert_not @section.valid?
-  end
-
   test 'Title should not be long' do
     @section.title = '1' * 141
     assert_not @section.valid?
