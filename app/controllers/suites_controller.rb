@@ -14,6 +14,7 @@ class SuitesController < ApplicationController
   # Shows a content of a single Test Suite including Test Cases
   def show
     @sections = @suite.sections.order(:created_at)
+    @cases = @suite.cases.order(:created_at)
   end
 
   # Test Suite edit page

@@ -24,7 +24,10 @@ module SuitesHelper
   def render_block(section)
     content_tag(:div, nil, class: 'section-block') do
       render('suites/section-header',
-             locals: { parent: section.id, title: section.title, object: section }) +
+             locals: { parent: section.id,
+                       title: section.title,
+                       object: section,
+                       tcases: section.cases }) +
           render_cases(section.children)
     end
   end

@@ -1,0 +1,18 @@
+<%= table_for tcases, table_html: { class: 'table table-hover' },
+      thead_html: { class: 'section-nav' },
+      data_row_html: { class: 'case-cell' } do |table| %>
+  <% table.column data: image_tag('dragGray.png'), data_column_html: { class: 'drag' },
+    header: -> { image_tag('dragNoBlue.png') }, header_column_html: { class: 'drag-no'} %>
+  <% table.column data: check_box(nil, nil, class: 'case-selection'), data_column_html: { class: 'checkbox' },
+    header: -> { check_box(nil, nil) }, header_column_html: { class: 'case-selection' } %>
+  <% table.column data: :title, data_column_html: { class: 'case-title' } do |tcase| %>
+    <%= link_to tcase.title, '', class: 'case-title' %>
+    <%= link_to image_tag('smallEdit.png'), '#', class: 'action-hover' %>
+  <% end %>
+  <% table.column data_column_html: { class: 'case-edit' } do %>
+    <%= link_to image_tag('smallEdit.png'), '', class: 'action-hover' %>
+  <% end %>
+  <% table.column data_column_html: { class: 'case-delete' } do %>
+    <%= link_to image_tag('smallDelete.png'), '', class: 'action-hover' %>
+  <% end %>
+<% end %>

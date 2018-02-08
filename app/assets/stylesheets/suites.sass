@@ -43,25 +43,18 @@
 #jstree_div
   margin-top: 20px
 
-
-.section-name
-  font-weight: bold
-  padding-right: 10px
+.section-head
+  padding-bottom: 7px
+  .section-name
+    font-weight: bold
+    padding-right: 10px
 
 .section-nav
-  height: 30px
   background: #f2f8ff
-  border-bottom: 1px solid #e0e0e0
   border-top: 1px solid #e0e0e0
-  margin: 8px 0 5px 0
-  padding: 4px
 
 #cases
   padding-right: 20px
-
-.drag-no
-  margin-bottom: 7px
-  padding-right: 10px
 
 .link
   color: inherit
@@ -85,3 +78,31 @@ div.modal-backdrop
 .section-head:hover
   .action-hover
     display: inline-block
+
+.case-cell:hover
+  .action-hover
+    display: inline-block
+
+.table.table-hover
+  margin-bottom: 10px
+
+  th, td
+    padding: 5px 3px
+    border-bottom: 1px solid #e0e0e0
+    a
+      color: #32588b
+
+  .drag-no
+    width: 20px
+    padding-bottom: 7px
+
+  .checkbox
+    display: table-cell
+    padding-top: 10px
+    width: 27px
+
+    input[type='checkbox'].case-selection
+      margin: 0
+
+  .case-edit, .case-delete
+    width: 35px
