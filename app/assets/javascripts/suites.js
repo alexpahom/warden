@@ -24,7 +24,9 @@ $(function() {
 // Checks children if parent is checked
 $(function () {
     $("input[type='checkbox']").change(function () {
-        $(this).parent().parent().children('ul').find("input[type='checkbox']").prop('checked', this.checked);
+        if ($(this).parent().hasClass('section-selection')) {
+            $(this).closest('li').find("input[type='checkbox']").prop('checked', this.checked);
+        }
     });
 });
 
