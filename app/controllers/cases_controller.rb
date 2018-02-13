@@ -1,6 +1,6 @@
 class CasesController < ApplicationController
   before_action :fetch_suite_for_section
-  before_action :fetch_section, only: %i(destroy)
+  before_action :fetch_case, only: %i(destroy)
 
   def create
     @case = @suite.cases.new(case_params)
@@ -30,5 +30,9 @@ class CasesController < ApplicationController
                                     steps
                                     exp_result
                                     suite_id))
+  end
+
+  def fetch_case
+    @case = Case.find(params[:id])
   end
 end
