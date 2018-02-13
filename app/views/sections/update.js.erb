@@ -3,4 +3,5 @@ $('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, fu
     $(this).children();
 });
 
-$("[data-attribute = '<%= @section.id %>']").parent().replaceWith("<%= j render_block(@section) %>");
+
+$("[data-attribute = '<%= @section.id %>']").closest('.section-block').replaceWith("<%= j render_block(@section) %>");

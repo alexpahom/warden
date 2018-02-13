@@ -42,6 +42,20 @@ $(function () {
     });
 });
 
+// Opens inline form for Test Case creation
+$(function () {
+    $('.add-case').click(function () {
+        $(this).parent().next().css('display', 'inline-block');
+    });
+});
+
+// Hides inline form for Test Case creation
+// $(function () {
+//     $('.form-inline').find('close').click(function () {
+//         $(this).closest('.inlineTestCase').hide();
+//     })
+// });
+
 // JStree sticks to the top of a screen
 $(function () {
     var a = function () {

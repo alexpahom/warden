@@ -1,5 +1,6 @@
 class SuitesController < ApplicationController
   before_action :fetch_suite, only: %i(temp show edit update destroy)
+  before_action :prepare_for_case, only: %i(show)
 
   # lists all the Test Suites
   def index

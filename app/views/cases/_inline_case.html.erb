@@ -1,0 +1,11 @@
+<div class="inlineTestCase" style="display:none">
+  <%= form_for [@suite, @case], remote: true, html: { class: 'form-inline'} do |f| %>
+    <%= label_tag(:title, 'Case Title: ')  %>
+    <%= f.text_field :title %>
+    <div class="buttons">
+      <%= image_submit_tag('accept.png') %>
+      <%= link_to image_tag('cancel.png'), '', class: 'close',
+                  onclick: '$(this).closest(\'.inlineTestCase\').hide();', remote: true %>
+    </div>
+  <% end %>
+</div>
