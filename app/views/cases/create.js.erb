@@ -1,0 +1,5 @@
+$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, function () {
+    $(this).children();
+});
+
+$('.form-inline').hide();

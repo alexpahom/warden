@@ -43,10 +43,6 @@ class SectionsController < ApplicationController
 
   private
 
-  def fetch_section
-    @section = Section.find(params[:id])
-  end
-
   def section_params
     params.require(:section).permit(%i(title description parent_id))
   end

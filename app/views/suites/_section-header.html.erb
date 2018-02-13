@@ -11,10 +11,10 @@
 <%= render partial: 'cases/test_cases', locals: { tcases: locals[:tcases]} %>
 <div class="inline-container">
     <span class="section-links">
-    <%= link_to 'Add Case', new_suite_case_path(@suite),
+    <%= link_to 'Add Case', '',
             class: 'link add-case', remote: true, 'data-parent' => locals[:parent] %> |
     <%= link_to 'Add Subsection', new_suite_section_path(@suite),
             class: 'link add-section', remote: true, 'data-attribute' => locals[:parent] %>
   </span>
-  <%= render 'cases/inline_case' %>
+  <%= render partial: 'cases/inline_case', locals: { parent: locals[:parent]} %>
 </div>

@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def prepare_for_case
     @case = Case.new
   end
+
+  def fetch_section
+    @section = Section.find(params[:id])
+  end
 end

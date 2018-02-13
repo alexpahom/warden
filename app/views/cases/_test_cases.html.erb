@@ -17,6 +17,7 @@
   <% end %>
 
   <% table.column data_column_html: { class: 'case-delete' } do %>
-    <%= link_to image_tag('smallDelete.png'), '', class: 'action-hover' %>
+    <%= link_to image_tag('smallDelete.png'), [@suite, Section.find(tcases.first.section_id)], method: :delete,
+                class: 'action-hover', remote: true, data: { confirm: 'Are you sure that you want to delete it?'} %>
   <% end %>
 <% end %>
