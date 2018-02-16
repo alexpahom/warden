@@ -1,11 +1,13 @@
 class CasesController < ApplicationController
   before_action :fetch_suite_for_section
-  before_action :fetch_case, only: %i(destroy)
+  before_action :fetch_case, only: %i(edit destroy)
+  # after_action :update_section, only: %i(destroy create)
 
   def create
     @case = @suite.cases.new(case_params)
     respond_to do |format|
       if @case.save
+        @section = @case.section.cases
         format.js { flash[:success] = 'Done' }
       else
         format.js { flash[:alert] = @case.errors.full_messages.to_sentence }
@@ -13,9 +15,14 @@ class CasesController < ApplicationController
     end
   end
 
+  def edit
+    respond_to :js
+  end
+
   def destroy
     respond_to do |format|
       @case.destroy
+      @section = @case.section.cases
       format.js { flash[:success] = 'Deleted' }
     end
   end
@@ -35,4 +42,9 @@ class CasesController < ApplicationController
   def fetch_case
     @case = Case.find(params[:id])
   end
+
+  # def update_section
+  #   binding.pry
+  #   @section = @case.section
+  # end
 end

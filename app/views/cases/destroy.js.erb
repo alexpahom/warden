@@ -1,0 +1,6 @@
+$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, function () {
+    $(this).children();
+});
+
+$("[data-parent = '<%= @case.section_id %>']").closest('.section-block').find('.table-hover')
+    .html("<%= j (render partial: 'cases/test_cases', locals: { tcases: @section}) %>");

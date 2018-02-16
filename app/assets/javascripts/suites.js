@@ -70,3 +70,11 @@ $(function () {
     };
     $(window).scroll(a);a()
 });
+
+//
+$(document).ready(function () {
+    $('.form-inline').submit(function (event) {
+        event.preventDefault();
+        console.log(1);
+    });
+});

@@ -8,8 +8,8 @@
     header: -> { check_box(nil, nil) }, header_column_html: { class: 'section-selection' } %>
 
   <% table.column data: :title, data_column_html: { class: 'case-title' } do |tcase| %>
-    <%= link_to tcase.title, '', class: 'case-title' %>
-    <%= link_to image_tag('smallEdit.png'), '#', class: 'action-hover' %>
+    <%= link_to tcase.title, '', class: 'case-title', id: "case_#{tcase.id}" %>
+    <%= link_to image_tag('smallEdit.png'), edit_suite_case_path(@suite, tcase), class: 'action-hover', remote: true %>
   <% end %>
 
   <% table.column data_column_html: { class: 'case-edit' } do %>

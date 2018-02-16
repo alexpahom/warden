@@ -1,5 +1,8 @@
 $('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, function () {
     $(this).children();
 });
-
-$('.form-inline').hide();
+<% if @case.save %>
+  $("[data-parent = '<%= @case.section_id %>']").closest('.section-block').find('.table-hover')
+      .html("<%= j (render partial: 'cases/test_cases', locals: { tcases: @section}) %>");
+<% end %>
+$('.form-inline').find('input[type=text]').val('');

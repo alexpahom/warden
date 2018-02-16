@@ -2,4 +2,4 @@ $('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, fu
     $(this).children();
 });
 
-$("[data-attribute=<%= @section.id %>]").parent().slideUp(600);
+$("[data-attribute=<%= @section.id %>]").closest('.section-block').slideUp(600);
