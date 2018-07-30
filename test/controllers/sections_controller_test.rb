@@ -32,7 +32,6 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'Update section is available' do
-    binding.pry
     patch suite_section_path(@suite, Section.find(4)), params: { section: @edit_p }, xhr: true
     assert_equal Section.find(4).title, @edit_p[:title], 'Section was not updated'
   end
