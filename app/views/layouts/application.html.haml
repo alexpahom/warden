@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title Warden
+    = csrf_meta_tags
+    %meta{ name: 'turbolinks-cache-control', content: 'no-cache' }
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'application'
+
+  %body
+  .header
+    %h1 Hello!
+    %ul.header-menu
+      %li.header-menu-item= link_to 'Overview', '#'
+      %li.header-menu-item= link_to 'Test Suites & Cases', suites_path, class: 'test'
+      %li.header-menu-item= link_to 'Reports', '#'
+
+  #separator
+  .content
+    .row
+      #body.col-xs-9
+        #flash= render 'shared/errors'
+        = yield
+      #sidebar.col-xs-3= yield :sidebar
+      - console if Rails.env.development?
