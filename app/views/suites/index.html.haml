@@ -1,0 +1,19 @@
+#section-header
+  %p Test Suites
+
+.field
+  - @suites.each do |suite|
+    .cell
+      .icon
+        = image_tag('suite.png')
+      .suite.desc
+        .suite-title
+          = link_to suite.title, suite_path(suite)
+        .mini-actions
+          = link_to 'Run Test', '#'
+          = link_to 'Test Runs', '#'
+          = link_to 'Edit', edit_suite_path(suite)
+
+
+= content_for :sidebar do
+  = link_to 'Add Test Suite', new_suite_path , class: 'btn btn-primary'

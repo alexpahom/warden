@@ -1,3 +1,3 @@
-$('#popup').html("<%= j (render partial: 'shared/modal', locals: {object: [@suite, @section]}) %>")
+$('#popup').html("<%= j (render partial: 'shared/modal', locals: {obj: [@suite, @section]}) %>")
     .children().slideDown(700);
 

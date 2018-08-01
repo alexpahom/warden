@@ -24,7 +24,9 @@ $(function() {
 // Checks children if parent is checked
 $(function () {
     $("input[type='checkbox']").change(function () {
-        $(this).parent().parent().children('ul').find("input[type='checkbox']").prop('checked', this.checked);
+        if ($(this).parent().hasClass('section-selection')) {
+            $(this).closest('li').find("input[type='checkbox']").prop('checked', this.checked);
+        }
     });
 });
 
@@ -40,6 +42,20 @@ $(function () {
     });
 });
 
+// Opens inline form for Test Case creation
+$(function () {
+    $('.add-case').click(function () {
+        $(this).parent().next().css('display', 'inline-block');
+    });
+});
+
+// Hides inline form for Test Case creation
+// $(function () {
+//     $('.form-inline').find('close').click(function () {
+//         $(this).closest('.inlineTestCase').hide();
+//     })
+// });
+
 // JStree sticks to the top of a screen
 $(function () {
     var a = function () {
@@ -53,4 +69,12 @@ $(function () {
         }
     };
     $(window).scroll(a);a()
+});
+
+//
+$(document).ready(function () {
+    $('.form-inline').submit(function (event) {
+        event.preventDefault();
+        console.log(1);
+    });
 });
