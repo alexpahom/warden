@@ -8,15 +8,13 @@
   padding: 10px 0
   border-bottom: 1px dotted
   margin-left: 5px
-
-//suite icon
-.icon
-  float: left
-  padding: 0 10px
-
-// text block with suite title and links
-.suite
-  overflow: hidden
+  //suite icon
+  .icon
+    float: left
+    padding: 0 10px
+  // text block with suite title and links
+  .suite
+    overflow: hidden
 
 #name
   width: 450px
@@ -43,27 +41,24 @@
 #jstree_div
   margin-top: 20px
 
-.section-head
-  padding-bottom: 7px
-  .section-name
-    font-weight: bold
-    padding-right: 10px
-
-.section-nav
-  background: #f2f8ff
-  border-top: 1px solid #e0e0e0
-
 #cases
   padding-right: 20px
-
-.link
-  color: inherit
-  text-decoration: underline
 
 .section-block
   margin-top: 10px
   padding-left: 30px
   border-left: 1px solid #e0e0e0
+
+  .section-head
+    padding-bottom: 7px
+
+    .section-name
+      font-weight: bold
+      padding-right: 10px
+
+  .section-head:hover
+    .action-hover
+      display: inline-block
 
 #cases ul
   padding-left: 0
@@ -75,33 +70,32 @@ div.modal-backdrop
   margin: 0 4px
   display: none
 
-.section-head:hover
-  .action-hover
-    display: inline-block
-
-.case-cell:hover
-  .action-hover
-    display: inline-block
-
 .table.table-hover
   margin-bottom: 10px
+
+  .section-nav
+    background: #f2f8ff
+    border-top: 1px solid #e0e0e0
+
+    .drag-no
+      width: 20px
+      padding-bottom: 7px
+
+  .case-cell:hover
+    .action-hover
+      display: inline-block
 
   th, td
     padding: 5px 3px
     border-bottom: 1px solid #e0e0e0
     a
       color: #32588b
-
-  .drag-no
-    width: 20px
-    padding-bottom: 7px
-
   .checkbox
     display: table-cell
     padding-top: 10px
     width: 27px
 
-    input[type='checkbox'].case-selection
+    .case-selection
       margin: 0
 
   .case-edit, .case-delete
@@ -124,6 +118,9 @@ div.modal-backdrop
 
 .inline-container
   position: relative
+  .link
+    color: inherit
+    text-decoration: underline
   .inlineTestCase
     background-color: white
     position: absolute

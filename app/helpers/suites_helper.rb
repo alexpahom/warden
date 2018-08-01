@@ -14,9 +14,7 @@ module SuitesHelper
     return ''.html_safe if roots.blank?
     content_tag(:ul) do
       roots.map do |root|
-        content_tag(:li) do
-          render_block root
-        end
+        content_tag(:li) { render_block root }
       end.join.html_safe
     end
   end
@@ -26,7 +24,7 @@ module SuitesHelper
       render('suites/section-header',
              locals: { parent: section.id,
                        title: section.title,
-                       object: section,
+                       obj: section,
                        tcases: section.cases }) +
           render_cases(section.children)
     end
