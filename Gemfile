@@ -6,10 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 gem 'acts_as_tree',             '~> 2.7.0'
-gem 'autoprefixer-rails',       '~> 7.1.4'
+gem 'autoprefixer-rails',       '~> 8.0.0'
 gem 'bootstrap-sass',           '~> 3.3.7'
 gem 'bootstrap_form',           '~> 2.7'
-gem 'coffee-rails',             '~> 4.2'
 gem 'haml-rails',               '~> 1.0'
 gem 'jbuilder',                 '~> 2.5'
 gem 'jquery-rails',             '~> 4.3.1'
@@ -18,10 +17,9 @@ gem 'jstree-rails-4'
 gem 'pg',                       '~> 0.18'
 gem 'puma',                     '~> 3.10.0'
 gem 'rails',                    '~> 5.1.4'
-gem 'rails-html-sanitizer',     '~> 1.0.3'
+gem 'rails-html-sanitizer',     '~> 1.0.4'
 gem 'rubocop',                  '~> 0.51.0'
 gem 'sass-rails',               '~> 5.0'
-gem 'table-for',                '~> 3.6.1'
 gem 'uglifier',                 '>= 1.3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -32,7 +30,7 @@ gem 'uglifier',                 '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara',               '~> 2.16.1'
+  gem 'capybara',               '~> 3.0.3'
   gem 'pry',                    '~> 0.11.3'
   gem 'selenium-webdriver'
 end
