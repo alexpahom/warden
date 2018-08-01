@@ -1,0 +1,4 @@
+- flash.each do |type, message|
+  %div{class: "alert #{alert_class_for(type)} alert-dismissable fade in modal-dialog", id: 'flash-box'}
+    %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
+    = message

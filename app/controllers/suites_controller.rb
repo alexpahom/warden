@@ -1,5 +1,6 @@
 class SuitesController < ApplicationController
   before_action :fetch_suite, only: %i(temp show edit update destroy)
+  before_action :prepare_for_case, only: %i(show)
 
   # lists all the Test Suites
   def index
@@ -14,6 +15,7 @@ class SuitesController < ApplicationController
   # Shows a content of a single Test Suite including Test Cases
   def show
     @sections = @suite.sections.order(:created_at)
+    @cases = @suite.cases.order(:created_at)
   end
 
   # Test Suite edit page
@@ -25,7 +27,7 @@ class SuitesController < ApplicationController
     if @suite.save
       redirect_to(suites_path, notice: 'Done')
     else
-      redirect_to(new_suite_path, alert: @suite.errors.full_messages.to_sentence)
+      redirect_to(new_suite_path, alert: render_error(@suite))
     end
   end
 
@@ -34,7 +36,7 @@ class SuitesController < ApplicationController
     if @suite.update_attributes(suite_params)
       redirect_to(suites_path, notice: 'Done')
     else
-      redirect_to(edit_suite_path, alert: @suite.errors.full_messages.to_sentence)
+      redirect_to(edit_suite_path, alert: render_error(@suite))
     end
   end
 

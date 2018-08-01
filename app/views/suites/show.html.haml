@@ -1,0 +1,18 @@
+#section-header
+  .label S#{@suite.id}
+  %p= @suite.title
+
+.description
+  %p= @suite.description
+
+#popup
+#cases
+  = render_cases(@sections.roots)
+
+= content_for :sidebar do
+  = link_to 'Add Section', new_suite_section_path(@suite), class: 'btn btn-primary add-sect',
+              'data-toggle' => 'modal', 'data-target' => '#squarespaceModal', remote: true
+  %br
+  #scroller
+  #jstree_div
+    = render_tree(@sections.roots)

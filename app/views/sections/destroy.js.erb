@@ -1,5 +1,6 @@
-$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, function () {
-    $(this).children();
-});
+<!--$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, function () {-->
+<!--    $(this).children();-->
+<!--});-->
+$('#flash').html("<%= j render 'shared/errors' %>").children().delay(2000).animate({ opacity: 0}, 2000);
 
-$("[data-attribute=<%= @section.id %>]").parent().slideUp(600);
+$("[data-attribute=<%= @section.id %>]").closest('.section-block').slideUp(600);

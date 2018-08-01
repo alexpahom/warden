@@ -1,0 +1,4 @@
+$('#flash').html("<%= j render 'shared/errors' %>").children().delay(2000).animate({ opacity: 0}, 2000);
+
+$("[data-parent = '<%= @case.section_id %>']").closest('.section-block').find('.table-hover').first()
+    .html("<%= j (render partial: 'cases/test_cases', locals: { tcases: @section}) %>");

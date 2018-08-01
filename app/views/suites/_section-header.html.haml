@@ -1,0 +1,11 @@
+.section-head
+  %span.section-name= locals[:title]
+  = link_to image_tag('smallEdit.png'),
+              edit_suite_section_path(@suite, locals[:obj]),
+              class: 'action-hover', remote: true
+  = link_to image_tag('smallDelete.png'),
+              [@suite, locals[:obj]], method: :delete, class: 'action-hover',
+              remote: true, data: { confirm: 'Are you sure that you want to delete it?'}
+
+= render partial: 'cases/test_cases', locals: { tcases: locals[:tcases]}
+= render partial: 'cases/inline_case', locals: { parent: locals[:parent]}
