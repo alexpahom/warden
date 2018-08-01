@@ -8,14 +8,15 @@ class SectionsController < ApplicationController
   end
 
   def create
-    @sections = @suite.sections.order(:created_at)
+    # not sure what is this for
+    # @sections = @suite.sections.order(:created_at)
 
     @section = @suite.sections.new(section_params)
     respond_to do |format|
       if @section.save
         format.js { flash[:success] = 'Done' }
       else
-        format.js { flash[:alert] = @section.errors.full_messages.to_sentence }
+        format.js { flash[:alert] = render_error(@section) }
       end
     end
   end
@@ -29,7 +30,7 @@ class SectionsController < ApplicationController
       if @section.update_attributes(section_params)
         format.js { flash[:success] = 'Done' }
       else
-        format.js { flash[:alert] = @section.errors.full_messages.to_sentence }
+        format.js { flash[:alert] = render_error(@section) }
       end
     end
   end

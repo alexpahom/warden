@@ -10,7 +10,7 @@ class CasesController < ApplicationController
         @section = @case.section.cases
         format.js { flash[:success] = 'Done' }
       else
-        format.js { flash[:alert] = @case.errors.full_messages.to_sentence }
+        format.js { flash[:alert] = render_error(@case) }
       end
     end
   end

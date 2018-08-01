@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   def fetch_section
     @section = Section.find(params[:id])
   end
+
+  def render_error(entity)
+    entity.errors.full_messages.to_sentence
+  end
 end

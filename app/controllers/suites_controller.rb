@@ -27,7 +27,7 @@ class SuitesController < ApplicationController
     if @suite.save
       redirect_to(suites_path, notice: 'Done')
     else
-      redirect_to(new_suite_path, alert: @suite.errors.full_messages.to_sentence)
+      redirect_to(new_suite_path, alert: render_error(@suite))
     end
   end
 
@@ -36,7 +36,7 @@ class SuitesController < ApplicationController
     if @suite.update_attributes(suite_params)
       redirect_to(suites_path, notice: 'Done')
     else
-      redirect_to(edit_suite_path, alert: @suite.errors.full_messages.to_sentence)
+      redirect_to(edit_suite_path, alert: render_error(@suite))
     end
   end
 
