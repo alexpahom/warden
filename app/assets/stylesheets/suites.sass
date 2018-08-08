@@ -38,11 +38,36 @@
 .description
   padding: 20px
 
-#jstree_div
-  margin-top: 20px
+#sidebar
+  .sidebar-head
+    padding: 10px
+    margin: 10px
+  #jstree_div
+    margin-top: 20px
 
 #cases
   padding-right: 20px
+  ul
+    padding-left: 0
+
+#contentToolbar
+  background-color: #f5f5f5
+  border: 1px solid #d7d7d7
+  height: 26px
+  margin-left: 30px
+  .toolbar-button
+    display: block
+    border-left: 1px solid #d7d7d7
+    text-decoration: none
+    color: #303030
+    height: 100%
+    float: right
+    padding: 0 18px 0 20px
+    cursor: pointer
+    line-height: 24px
+    align-content: center
+  .toolbar-button:hover
+    background-color: #d1e6fd
 
 .section-block
   margin-top: 10px
@@ -59,9 +84,6 @@
   .section-head:hover
     .action-hover
       display: inline-block
-
-#cases ul
-  padding-left: 0
 
 div.modal-backdrop
   z-index: -1
@@ -96,7 +118,7 @@ div.modal-backdrop
     width: 27px
 
     .case-selection
-      margin: 0
+      margin: auto
 
   .case-edit, .case-delete
     width: 35px

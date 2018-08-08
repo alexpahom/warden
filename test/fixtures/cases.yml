@@ -1,17 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  section_id: 1
-  title: MyString
-  template: MyString
+  suite_id: 10
+  section_id: 4
+  title: Superadmin can log in
+  template: checklist
   precondition: MyText
   steps: MyText
   exp_result: MyText
 
 two:
-  section_id: 1
-  title: MyString
-  template: MyString
+  suite_id: 10
+  section_id: 4
+  title: Validation message is displayed when user tries to log in with invalid credentials
+  template: checklist
+  precondition: MyText
+  steps: MyText
+  exp_result: MyText
+
+three:
+  suite_id: 10
+  section_id: 4
+  title: User can logout
+  template: checklist
+  precondition: MyText
+  steps: MyText
+  exp_result: MyText
+
+four:
+  suite_id: 10
+  section_id: 4
+  title: Password expires in 90 days
+  template: checklist
   precondition: MyText
   steps: MyText
   exp_result: MyText

@@ -7,5 +7,5 @@
               [@suite, locals[:obj]], method: :delete, class: 'action-hover',
               remote: true, data: { confirm: 'Are you sure that you want to delete it?'}
 
-= render partial: 'cases/test_cases', locals: { tcases: locals[:tcases]}
+= render partial: 'cases/test_cases', locals: { tcases: locals[:tcases], section_id: locals[:parent] }
 = render partial: 'cases/inline_case', locals: { parent: locals[:parent]}

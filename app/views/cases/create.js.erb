@@ -2,6 +2,6 @@ $('#flash').html("<%= j render 'shared/errors' %>").children().delay(2000).anima
 
 <% if @case.save %>
   $("[data-parent = '<%= @case.section_id %>']").closest('.section-block').find('.table-hover').first()
-      .html("<%= j (render partial: 'cases/test_cases', locals: { tcases: @section}) %>");
+      .html("<%= j (render partial: 'cases/test_cases', locals: { tcases: @cases, section_id: @id }) %>");
 <% end %>
 $('.form-inline').find('input[type=text]').val('');

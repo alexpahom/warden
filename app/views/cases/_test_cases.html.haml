@@ -2,18 +2,18 @@
   %thead.section-nav
     %tr
       %th.drag-no= image_tag('dragNoBlue.png')
-      %th.section-selection= check_box(nil, nil)
+      %th.section-selection= check_box_tag('', section_id, false, class: 'section-select')
       %th
       %th
       %th
   %tbody
     - tcases.each do |tcase|
-      %tr.case-cell
+      %tr.case-cell{id: "case_#{tcase.id}"}
         %td.drag= image_tag('dragGray.png')
-        %td.checkbox= check_box(nil, nil, class: 'case-selection')
+        %td.checkbox= check_box_tag('', tcase.id, false, class: 'case-selection')
         %td.case-title
           = link_to tcase.title, '', class: 'case-title', id: "case_#{tcase.id}"
-          = link_to image_tag('smallEdit.png'), '', class: 'action-hover'
+          -#= link_to image_tag('smallEdit.png'), '', class: 'action-hover'
         %td.case-edit= link_to image_tag('smallEdit.png'), '', class: 'action-hover'
         %td.case-delete
           = link_to image_tag('smallDelete.png'), [@suite, tcase], method: :delete,

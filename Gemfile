@@ -30,7 +30,8 @@ gem 'uglifier',                 '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara',               '~> 3.0.3'
+  gem 'capybara',               '~> 2.13'
+  gem 'chromedriver-helper'
   gem 'pry',                    '~> 0.11.3'
   gem 'selenium-webdriver'
 end

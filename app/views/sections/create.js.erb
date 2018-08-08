@@ -1,9 +1,7 @@
-$('#squarespaceModal').slideUp(700);
-<!--$('#flash').html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, function () {-->
-<!--    $(this).children();-->
-<!--});-->
-$('#flash').html("<%= j render 'shared/errors' %>").children().delay(2000).animate({ opacity: 0}, 2000);
-
+$('#squarespaceModal').hide();
+$('#flash').show().html("<%= j render 'shared/errors' %>").delay(2000).fadeOut(2000, function () {
+    $(this).children();
+});
 
 <% if @section.save %>
   <% if !@section.parent_id.nil? %>
@@ -11,6 +9,6 @@ $('#flash').html("<%= j render 'shared/errors' %>").children().delay(2000).anima
       .append("<ul><li><%= j render_block(@section) %></li></ul>").find('li').last()
       .attr('style', 'display:none').slideDown(700);
   <% else %>
-    $('#cases').children().append("<%= j render_block @section %>");
+    $('#cases').append("<ul><li><%= j render_block @section %></li></ul>");
   <% end %>
 <% end %>

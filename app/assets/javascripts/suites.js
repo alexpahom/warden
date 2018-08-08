@@ -31,16 +31,11 @@ $(function () {
 });
 
 // Appends parent_id of a section right into the pop-up form
-$(function () {
-    $('.add-section').click(function () {
-        var parent = this;
-        $(document).on('ajax:success', function () {
-            $('#section_parent_id').val(function () {
-                return $(parent).attr('data-attribute');
-            });
-        });
+function appendParent(parent) {
+    $(document).on('ajax:success', function () {
+        $('#section_parent_id').val(parent);
     });
-});
+}
 
 // Opens inline form for Test Case creation
 $(function () {
@@ -49,12 +44,7 @@ $(function () {
     });
 });
 
-// Hides inline form for Test Case creation
-// $(function () {
-//     $('.form-inline').find('close').click(function () {
-//         $(this).closest('.inlineTestCase').hide();
-//     })
-// });
+
 
 // JStree sticks to the top of a screen
 $(function () {
@@ -76,5 +66,21 @@ $(document).ready(function () {
     $('.form-inline').submit(function (event) {
         event.preventDefault();
         console.log(1);
+    });
+});
+
+$(function() {
+    $('#deleteCases').click(function() {
+        var values = [];
+        $('.case-selection').each(function(i, val) {
+            if (val.checked) {
+                values.push(val.getAttribute('value'));
+            }
+        });
+        $.ajax({
+            url: $(this).attr('ajax_path'),
+            type: 'DELETE',
+            data: {ids: values}
+        });
     });
 });

@@ -6,10 +6,17 @@
   %p= @suite.description
 
 #popup
+
 #cases
+  #contentToolbar
+    = link_to image_tag('smallDelete.png'), '', class: 'toolbar-button', id: 'deleteCases', remote: true,
+    ajax_path: suite_delete_case_path(@suite)
+    -#%span Delete
+
   = render_cases(@sections.roots)
 
 = content_for :sidebar do
+  .sidebar-head= "Contains #{@suite.sections.count} sections and #{@suite.cases.count} cases."
   = link_to 'Add Section', new_suite_section_path(@suite), class: 'btn btn-primary add-sect',
               'data-toggle' => 'modal', 'data-target' => '#squarespaceModal', remote: true
   %br

@@ -5,16 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 4
   suite_id: 10
+  id: 4
   title: General
-  description: Just a Suite
-  parent_id: nil
 
 two:
   suite_id: 10
   title: Login
-  description: Shows how to log in
   parent_id: 4
 
 three:
