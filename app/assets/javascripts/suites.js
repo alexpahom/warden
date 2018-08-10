@@ -80,7 +80,15 @@ $(function() {
         $.ajax({
             url: $(this).attr('ajax_path'),
             type: 'DELETE',
-            data: {ids: values}
+            data: {ids: values},
+            success: function() {
+                values.forEach(function (value) {
+                    $('tr#case_' + value).remove();
+                });
+            },
+            error: function(jqXHR) {
+                window.alert(jqXHR.statusText);
+            }
         });
     });
 });

@@ -22,8 +22,11 @@ class CasesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  # test 'Can delete case' do
-  # end
+  test 'Can delete case' do
+    assert_difference 'Case.count', -1, 'Case was not deleted' do
+      delete suite_case_path(@suite, @case), xhr: true
+    end
+  end
 
   test 'Can delete several cases' do
     assert_difference 'Case.count', -2, 'Cases were not deleted' do

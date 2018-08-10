@@ -17,12 +17,9 @@ class CasesProcessesTest < ApplicationSystemTestCase
     end
   end
 
-  # TODO: #<ActionView::Template::Error: undefined local variable or method `section_id' for #<#<Class:0x00007fe07e3f43d0>:0x00000000080c2a30>
-  # Did you mean?  @section>
-  # /home/alex/warden/app/views/cases/_test_cases.html.haml:5:in `_app_views_cases__test_cases_html_haml___65903224695454033_67447760'
-  # test 'Can delete a case' do
-  #   page.find(:xpath, "//tr[@id='case_#{@to_delete.id}']").hover.find(:xpath, "//a[@data-method='delete']").click
-  #   accept_alert
-  #   assert page.has_no_xpath?("//tr[@id='case_#{@to_delete.id}']")
-  # end
+  test 'Can delete a case' do
+    page.find(:xpath, "//tr[@id='case_#{@to_delete.id}']").hover.find(:xpath, "//a[@data-method='delete']").click
+    accept_alert
+    assert page.has_no_xpath?("//tr[@id='case_#{@to_delete.id}']")
+  end
 end
