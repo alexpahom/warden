@@ -48,36 +48,53 @@ ol, ul
   float: left
   margin-right: 5px
 
-.header-menu-item a
-  font-family: Helvetica, sans-serif
-  font-size: 13px
-  font-weight: normal
-  display: block
-  text-decoration: none
-  padding: 0 12px
-  color: #f0f0f0
-  background: #3b73af
-  border-top-left-radius: 3px
-  border-top-right-radius: 3px
-  line-height: 28px
+  a
+    font-family: Helvetica, sans-serif
+    font-size: 13px
+    font-weight: normal
+    display: block
+    text-decoration: none
+    padding: 0 12px
+    color: #f0f0f0
+    background: #3b73af
+    border-top-left-radius: 3px
+    border-top-right-radius: 3px
+    line-height: 28px
 
-.header-menu-item a:hover
-  background-color: #ebebeb
-  color: #32588b
+  a:hover
+    background-color: #ebebeb
+    color: #32588b
 
-#section-header
-  height: 40px
-  background: #d1e6fd
 
-#section-header p
-  font-size: 18px
-  font-family: Helvetica, sans-serif
-  padding: 8px
 
 .content
   position: relative
   overflow: hidden
   padding-bottom: 350px
+
+  #body
+    padding: 0 0 0 15px
+    height: 100%
+
+    #flash
+      position: fixed
+      width: 100%
+      z-index: 1
+
+    #section-header
+      height: 40px
+      background: #d1e6fd
+
+      .label
+        margin: 12px
+        color: white
+        font-weight: normal
+        background: #748cce
+        float: left
+      p
+        font-size: 18px
+        font-family: Helvetica, sans-serif
+        padding: 8px
 
 #sidebar
   background: #ebebeb
@@ -91,15 +108,6 @@ ol, ul
 .field
   padding: 10px 30px
   max-width: 950px
-
-#body
-  padding: 0 0 0 15px
-  height: 100%
-
-#flash
-  position: fixed
-  width: 100%
-  z-index: 1
 
 #flash-box
   margin: 0 auto

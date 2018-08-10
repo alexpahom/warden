@@ -14,16 +14,15 @@ class CasesController < ApplicationController
     update_section_cases
   end
 
-  def edit
-    respond_to :js
-  end
+  def edit; end
 
   def destroy
     @case.destroy
     update_section_cases
 
     respond_to do |format|
-      format.js { flash[:success] = 'Deleted' }
+      format.html { redirect_to(suite_path(@suite), notice: 'Deleted') }
+      format.js   { flash[:success] = 'Deleted' }
     end
   end
 

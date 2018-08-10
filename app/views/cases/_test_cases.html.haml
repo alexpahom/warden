@@ -14,7 +14,7 @@
         %td.case-title
           = link_to tcase.title, '', class: 'case-title', id: "case_#{tcase.id}"
           -#= link_to image_tag('smallEdit.png'), '', class: 'action-hover'
-        %td.case-edit= link_to image_tag('smallEdit.png'), '', class: 'action-hover'
+        %td.case-edit= link_to image_tag('smallEdit.png'), edit_suite_case_path(@suite, tcase), class: 'action-hover'
         %td.case-delete
           = link_to image_tag('smallDelete.png'), [@suite, tcase], method: :delete,
                       class: 'action-hover', remote: true, data: {confirm: 'Are you sure that you want to delete it?'}

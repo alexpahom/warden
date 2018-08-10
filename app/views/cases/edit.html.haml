@@ -1,0 +1,14 @@
+#section-header
+  .label C#{@case.id}
+  %p Edit Case
+
+= link_to @suite.title, suite_path(@suite), class: 'content-breadcrumb'
+= bootstrap_form_for [@suite, @case] do |f|
+  #form-controls
+    = f.text_field :title, id: 'cas_title'
+    = f.select :section_id, @suite.sections.map(&:title) 
+
+
+= content_for :sidebar do
+  %p Delete a test case to remove it from its test suite. This also deletes all related running tests.
+  = link_to 'Delete this test case', suite_case_path(@suite, @case), method: :delete, data: { confirm: 'Are you sure?' }
