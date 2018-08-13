@@ -1,6 +1,6 @@
 class CasesController < ApplicationController
   before_action :fetch_suite_for_section
-  before_action :fetch_case, only: %i(edit destroy)
+  before_action :fetch_case, only: %i(edit update destroy)
 
   def create
     @case = @suite.cases.new(case_params)
@@ -14,7 +14,20 @@ class CasesController < ApplicationController
     update_section_cases
   end
 
-  def edit; end
+  def edit
+    @sections = {}
+    @suite.sections.walk_tree do |section, level|
+      @sections["#{'--' * level}#{section.title}"] = section.id
+    end
+  end
+
+  def update
+    if @case.update_attributes(case_params)
+      redirect_to(suite_path(@suite), success: 'Done')
+    else
+      redirect_to(edit_suite_case_path(@suite, @case), alert: render_error(@case))
+    end
+  end
 
   def destroy
     @case.destroy

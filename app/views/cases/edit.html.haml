@@ -5,8 +5,24 @@
 = link_to @suite.title, suite_path(@suite), class: 'content-breadcrumb'
 = bootstrap_form_for [@suite, @case] do |f|
   #form-controls
-    = f.text_field :title, id: 'cas_title'
-    = f.select :section_id, @suite.sections.map(&:title) 
+    = f.text_field :title, id: 'case-title', label: { class: 'required' }
+    #io-box
+      = f.select :section_id, @sections, id: 'case-section', label: { class: 'required' }
+      = f.select :template, ['Checklist', 'Testcase'], label: { class: 'required' }
+      -# TODO: connect to model when it's time
+      .form-group
+        = label_tag 'priority', nil, class: 'required'
+        = select_tag 'priority', '<option>Low</option><option>High</option>'.html_safe, class: 'form-control'
+      .form-group
+        = label_tag 'status', nil, class: 'required'
+        = select_tag 'status', '<option>Open</option><option>Closed></option>'.html_safe, class: 'form-control'
+
+    = f.text_area :precondition, help: 'The precondition of this test case.'
+    = f.text_area :steps, help: 'The required steps to execute the test case.'
+    = f.text_area :exp_result, label: 'Expected Result', help: 'The expected result after executing the test case.'
+
+    = f.primary 'Save Test Case'
+    = link_to 'Cancel', suite_path(@suite), class: 'btn btn-default'
 
 
 = content_for :sidebar do
