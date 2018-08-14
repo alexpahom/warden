@@ -23,7 +23,7 @@ class CasesController < ApplicationController
 
   def update
     if @case.update_attributes(case_params)
-      redirect_to(suite_path(@suite), success: 'Done')
+      redirect_to(suite_path(@suite), notice: 'Done')
     else
       redirect_to(edit_suite_case_path(@suite, @case), alert: render_error(@case))
     end
@@ -50,13 +50,7 @@ class CasesController < ApplicationController
   private
 
   def case_params
-    params.require(:case).permit(%i(section_id
-                                    title
-                                    template
-                                    precondition
-                                    steps
-                                    exp_result
-                                    suite_id))
+    params.require(:case).permit(case_attributes)
   end
 
   def fetch_case
@@ -65,5 +59,18 @@ class CasesController < ApplicationController
 
   def update_section_cases
     @section_cases = @case.section.cases
+  end
+
+  def case_attributes
+    [
+      :section_id,
+      :title,
+      :template,
+      :precondition,
+      :exp_result,
+      :suite_id,
+      steps_attributes: %i(id case_id action position),
+      exp_results_attributes: %i(id case_id action position)
+    ]
   end
 end

@@ -10,24 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206111611) do
+ActiveRecord::Schema.define(version: 20180814140427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "cases", force: :cascade do |t|
     t.integer "section_id"
     t.string "title"
     t.string "template"
     t.text "precondition"
-    t.text "steps"
-    t.text "exp_result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "suite_id"
     t.integer "rank"
     t.index ["section_id"], name: "index_cases_on_section_id"
     t.index ["suite_id"], name: "index_cases_on_suite_id"
+  end
+
+  create_table "exp_results", force: :cascade do |t|
+    t.integer "case_id"
+    t.integer "position"
+    t.text "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["case_id"], name: "index_exp_results_on_case_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -38,6 +46,15 @@ ActiveRecord::Schema.define(version: 20180206111611) do
     t.datetime "updated_at", null: false
     t.integer "suite_id"
     t.index ["suite_id"], name: "index_sections_on_suite_id"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer "case_id"
+    t.integer "position"
+    t.text "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["case_id"], name: "index_steps_on_case_id"
   end
 
   create_table "suites", force: :cascade do |t|

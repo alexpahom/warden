@@ -3,7 +3,7 @@
   %p Edit Case
 
 = link_to @suite.title, suite_path(@suite), class: 'content-breadcrumb'
-= bootstrap_form_for [@suite, @case] do |f|
+= bootstrap_form_for [@suite, setup_case(@case)] do |f|
   #form-controls
     = f.text_field :title, id: 'case-title', label: { class: 'required' }
     #io-box
@@ -18,8 +18,13 @@
         = select_tag 'status', '<option>Open</option><option>Closed></option>'.html_safe, class: 'form-control'
 
     = f.text_area :precondition, help: 'The precondition of this test case.'
-    = f.text_area :steps, help: 'The required steps to execute the test case.'
-    = f.text_area :exp_result, label: 'Expected Result', help: 'The expected result after executing the test case.'
+    = f.fields_for :steps do |step|
+      = step.text_area :action, label: 'Steps', help: 'The required steps to execute the test case.'
+
+    = f.fields_for :exp_results do |r|
+      = r.text_area :action, label: 'Expected result', help: 'The expected result after executing the test case.'
+
+    = f.hidden_field :suite_id, value: @suite.id
 
     = f.primary 'Save Test Case'
     = link_to 'Cancel', suite_path(@suite), class: 'btn btn-default'
