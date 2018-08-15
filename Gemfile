@@ -5,10 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# gem 'acts_as_list'
 gem 'acts_as_tree',             '~> 2.7.0'
 gem 'autoprefixer-rails',       '~> 8.0.0'
 gem 'bootstrap-sass',           '~> 3.3.7'
 gem 'bootstrap_form',           '~> 2.7'
+# gem 'cocoon',                   '~> 1.2.11'
 gem 'haml-rails',               '~> 1.0'
 gem 'jbuilder',                 '~> 2.5'
 gem 'jquery-rails',             '~> 4.3.1'

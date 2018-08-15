@@ -73,3 +73,14 @@ suites.each do |suite|
   end
 end
 
+Case.all.each do |tcase|
+  Step.create(
+    action: 'First step is to make a cup of coffee',
+    case_id: tcase.id
+  )
+  ExpResult.create(
+    action: 'Coffee is done!',
+    case_id: tcase.id
+  )
+end
+

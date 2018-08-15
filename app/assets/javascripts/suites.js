@@ -65,7 +65,6 @@ $(function () {
 $(document).ready(function () {
     $('.form-inline').submit(function (event) {
         event.preventDefault();
-        console.log(1);
     });
 });
 

@@ -63,12 +63,8 @@ class CasesController < ApplicationController
 
   def case_attributes
     [
-      :section_id,
-      :title,
-      :template,
-      :precondition,
-      :exp_result,
-      :suite_id,
+      :section_id, :title, :template,
+      :precondition, :suite_id, :test_data,
       steps_attributes: %i(id case_id action position),
       exp_results_attributes: %i(id case_id action position)
     ]
