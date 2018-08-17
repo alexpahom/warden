@@ -24,3 +24,14 @@ $(function () {
         $(new_position_container).last().text(new_position);
     })
 });
+
+$(function () {
+    $('form').submit(function () {
+        if ($('#case_template').val() === 'checklist') {
+            $('#testcase_container').remove();
+        } else {
+            $('#checklist-container').remove();
+        }
+        return true
+    })
+});

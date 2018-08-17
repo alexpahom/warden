@@ -22,7 +22,6 @@ class CasesController < ApplicationController
   end
 
   def update
-    binding.pry
     if @case.update_attributes(case_params)
       redirect_to(suite_path(@suite), notice: 'Done')
     else

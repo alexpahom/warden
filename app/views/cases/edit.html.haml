@@ -21,6 +21,7 @@
     #checklist-container
       -# TODO: should render only one pair of text areas
       = f.fields_for :steps do |step|
+        = step.hidden_field :position
         = step.text_area :actual_result, label: 'Steps', help: 'The required steps to execute the test case.'
         = step.text_area :expected_result, label: 'Expected result', help: 'The expected result after executing the test case.'
 
@@ -29,14 +30,14 @@
 
       = label_tag 'Steps'
       %table#steps-control
-        = render 'testcase_steps', f: f
+        = f.fields_for :steps do |step|
+          = render 'testcase_steps', f: step
 
-      -# TODO: form sends unpermitted 'steps' parameter
       %span.pull-right
         = link_to_add_association 'Add Step', f, :steps, partial: 'testcase_steps',
-        'data-association-insertion-method' => 'append',
-        'data-association-insertion-node' => '#steps-control',
-        force_non_association_create: false
+          'data-association-insertion-method' => 'append',
+          'data-association-insertion-node'   => '#steps-control',
+          force_non_association_create: false
 
 
     = f.hidden_field :suite_id, value: @suite.id
