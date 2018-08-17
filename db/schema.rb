@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815131113) do
+ActiveRecord::Schema.define(version: 20180816134052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,15 +30,6 @@ ActiveRecord::Schema.define(version: 20180815131113) do
     t.index ["suite_id"], name: "index_cases_on_suite_id"
   end
 
-  create_table "exp_results", force: :cascade do |t|
-    t.integer "case_id"
-    t.integer "position"
-    t.text "action"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["case_id"], name: "index_exp_results_on_case_id"
-  end
-
   create_table "sections", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -52,9 +43,10 @@ ActiveRecord::Schema.define(version: 20180815131113) do
   create_table "steps", force: :cascade do |t|
     t.integer "case_id"
     t.integer "position"
-    t.text "action"
+    t.text "actual_result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "expected_result"
     t.index ["case_id"], name: "index_steps_on_case_id"
   end
 

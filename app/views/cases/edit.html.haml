@@ -19,32 +19,25 @@
 
     = f.text_area :precondition, help: 'The precondition of this test case.'
     #checklist-container
+      -# TODO: should render only one pair of text areas
       = f.fields_for :steps do |step|
-        = step.text_area :action, label: 'Steps', help: 'The required steps to execute the test case.'
-
-      = f.fields_for :exp_results do |r|
-        = r.text_area :action, label: 'Expected result', help: 'The expected result after executing the test case.'
+        = step.text_area :actual_result, label: 'Steps', help: 'The required steps to execute the test case.'
+        = step.text_area :expected_result, label: 'Expected result', help: 'The expected result after executing the test case.'
 
     #testcase-container
       = f.text_area :test_data, help: 'Provide Test Data: user accounts, configurations etc.'
 
       = label_tag 'Steps'
       %table#steps-control
-        %tr.step-container
-          %td.step-positions
-            .step-number 1
-          %td.step-content
-            .step-text
-              .step-text-content
-                = f.fields_for :steps do |step|
-                  = step.text_area :action, hide_label: true, placeholder: 'Action'
-              .step-text-expected
-                = f.fields_for :exp_results do |r|
-                  = r.text_area :action, hide_label: true, placeholder: 'Expected Result'
-          %td.step-buttons
-            %div= image_tag('smallDelete.png')
+        = render 'testcase_steps', f: f
+
+      -# TODO: form sends unpermitted 'steps' parameter
       %span.pull-right
-        %a Add Step
+        = link_to_add_association 'Add Step', f, :steps, partial: 'testcase_steps',
+        'data-association-insertion-method' => 'append',
+        'data-association-insertion-node' => '#steps-control',
+        force_non_association_create: false
+
 
     = f.hidden_field :suite_id, value: @suite.id
     = f.form_group class: 'prime-button' do

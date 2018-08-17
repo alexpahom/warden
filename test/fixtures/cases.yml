@@ -6,8 +6,6 @@ one:
   title: Superadmin can log in
   template: checklist
   precondition: MyText
-  steps: MyText
-  exp_result: MyText
 
 two:
   suite_id: 10
@@ -15,8 +13,6 @@ two:
   title: Validation message is displayed when user tries to log in with invalid credentials
   template: checklist
   precondition: MyText
-  steps: MyText
-  exp_result: MyText
 
 three:
   suite_id: 10
@@ -24,8 +20,6 @@ three:
   title: User can logout
   template: checklist
   precondition: MyText
-  steps: MyText
-  exp_result: MyText
 
 four:
   suite_id: 10
@@ -33,5 +27,3 @@ four:
   title: Password expires in 90 days
   template: checklist
   precondition: MyText
-  steps: MyText
-  exp_result: MyText

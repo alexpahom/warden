@@ -16,5 +16,6 @@
 //= require jquery.ui.widget
 //= require jquery.ui.sortable
 //= require bootstrap-sprockets
+//= require cocoon
 //= require jstree
 //= require_tree .

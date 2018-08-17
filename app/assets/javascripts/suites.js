@@ -48,6 +48,9 @@ $(function () {
 
 // JStree sticks to the top of a screen
 $(function () {
+    if (!document.getElementById('scroller')) {
+        return;
+    }
     var a = function () {
         var win_top = $(window).scrollTop();
         var div_top = $('#scroller').offset().top;

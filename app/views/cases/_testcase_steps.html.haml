@@ -1,0 +1,16 @@
+= f.fields_for :steps do |step|
+  %tr.step-container
+    %td.step-positions
+      -#-binding.pry
+      = step.hidden_field :position
+      .step-number
+        = step.object.position unless step.object.nil?
+    %td.step-content
+      .step-text
+        .step-text-content
+          = step.text_area :actual_result, hide_label: true, placeholder: 'Action'
+        .step-text-expected
+          = step.text_area :expected_result, hide_label: true, placeholder: 'Expected Result'
+    %td.step-buttons
+      %div= image_tag('smallDelete.png')
+

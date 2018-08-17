@@ -22,6 +22,7 @@ class CasesController < ApplicationController
   end
 
   def update
+    binding.pry
     if @case.update_attributes(case_params)
       redirect_to(suite_path(@suite), notice: 'Done')
     else
@@ -65,8 +66,7 @@ class CasesController < ApplicationController
     [
       :section_id, :title, :template,
       :precondition, :suite_id, :test_data,
-      steps_attributes: %i(id case_id action position),
-      exp_results_attributes: %i(id case_id action position)
+      steps_attributes: %i(id case_id position actual_result expected_result)
     ]
   end
 end
